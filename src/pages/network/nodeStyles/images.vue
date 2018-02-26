@@ -4,7 +4,9 @@
       Display nodes as images.
     </p>
     <vis-network :graph-data="graphData"
-                 :options="options" style="height: 500px;"></vis-network>
+                 :options="options"
+                 style="height: 500px;">
+    </vis-network>
   </div>
 </template>
 

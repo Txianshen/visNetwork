@@ -1,6 +1,6 @@
 # visjs
 
-> A Vue.js project
+> A Vue.js project that rewrites vis-network examples using Vue.js.
 
 ## Build Setup
 

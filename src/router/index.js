@@ -8,6 +8,8 @@ import NodeStylesIndex from '../pages/network/nodeStyles/index'
 import Shapes from '../pages/network/nodeStyles/shapes'
 import Images from '../pages/network/nodeStyles/images'
 import ImagesWithBorders from '../pages/network/nodeStyles/imagesWithBorders'
+import Groups from '../pages/network/nodeStyles/groups'
+import Shadows from '../pages/network/nodeStyles/shadows'
 
 Vue.use(Router)
 
@@ -43,9 +45,16 @@ export default new Router({
           path: 'imagesWithBorders',
           name: 'ImagesWithBorders',
           component: ImagesWithBorders
+        }, {
+          path: 'groups',
+          name: 'Groups',
+          component: Groups
+        }, {
+          path: 'shadows',
+          name: 'Shadows',
+          component: Shadows
         }]
-      }
-      ]
+      }]
     }
   ]
 })

@@ -36,41 +36,62 @@ const tree = [
     id: 1,
     label: 'Network',
     icon: 'el-icon-message',
-    children: [{
-      id: 5,
-      label: 'Simple',
-      path: 'Simple'
-    }, {
-      id: 6,
-      label: 'Basic Usage',
-      path: 'BasicUsage'
-    }, {
-      id: 7,
-      label: 'physics'
-    }, {
-      id: 8,
-      label: 'nodeStyles',
-      children: [{
-        id: 81,
-        label: 'shapes',
-        path: 'Shapes'
-      }, {
-        id: 82,
-        label: 'images',
-        path: 'Images'
-      }, {
-        id: 83,
-        label: 'imagesWithBorders',
-        path: 'ImagesWithBorders'
+    children: [
+      {
+        id: 5,
+        label: 'Simple',
+        path: 'Simple'
+      },
+      {
+        id: 6,
+        label: 'Basic Usage',
+        path: 'BasicUsage'
+      },
+      {
+        id: 7,
+        label: 'physics'
+      },
+      {
+        id: 8,
+        label: 'nodeStyles',
+        children: [
+          {
+            id: 81,
+            label: 'shapes',
+            path: 'Shapes'
+          },
+          {
+            id: 82,
+            label: 'images',
+            path: 'Images'
+          },
+          {
+            id: 83,
+            label: 'imagesWithBorders',
+            path: 'ImagesWithBorders'
+          },
+          {
+            id: 84,
+            label: 'groups',
+            path: 'Groups'
+          },
+          {
+            id: 85,
+            label: 'shadows',
+            path: 'Shadows'
+          }
+        ]
       }]
-    }]
-  }, {
+  },
+  {
     id: 2,
     label: 'TimeLine'
-  }, {
+  },
+  {
     id: 3,
     label: 'Graph2d'
-  }, {
+  },
+  {
     id: 4,
     label: 'Graph3d'
   }
