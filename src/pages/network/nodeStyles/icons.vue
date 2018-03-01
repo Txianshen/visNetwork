@@ -17,10 +17,10 @@
       </vis-network>
     <h2>
       <i class="ion ion-ionic"></i> Use Ionicons-icons for nodes</h2>
-      <!--<vis-network :graph-data="dataIO"-->
-                   <!--:options="optionsIO"-->
-                   <!--:style="containerStyle">-->
-      <!--</vis-network>-->
+      <vis-network :graph-data="dataIO"
+                   :options="optionsIO"
+                   :style="containerStyle">
+      </vis-network>
   </div>
 </template>
 
@@ -57,10 +57,6 @@ export default {
       },
       groups: {
         usergroups: {
-          // font: {
-          //   // size: 30,
-          //   color: 'blue'
-          // },
           shape: 'icon',
           icon: {
             face: 'FontAwesome',
@@ -148,7 +144,7 @@ export default {
           }
         },
         users: {
-          shape: 'diamond',
+          shape: 'icon',
           icon: {
             face: 'Ionicons',
             code: '\uf47e',

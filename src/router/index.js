@@ -17,6 +17,7 @@ import CustomGroups from '../pages/network/nodeStyles/customGroups'
 import HTMLInNodes from '../pages/network/nodeStyles/HTMLInNodes'
 import ShapesWithDashedBorders from '../pages/network/nodeStyles/shapesWithDashedBorders'
 import WidthHeight from '../pages/network/nodeStyles/widthHeight'
+import {Physics, PhysicsConfiguration} from '../pages/network/physics'
 
 Vue.use(Router)
 
@@ -26,18 +27,32 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
-    }, {
+    },
+    {
       path: '/network',
       component: NetworkIndex,
       children: [{
         path: 'basic',
         name: 'BasicUsage',
         component: BasicUsage
-      }, {
+      },
+      {
         path: 'simple',
         name: 'Simple',
         component: Simple
-      }, {
+      },
+      {
+        path: 'physics',
+        component: Physics,
+        children: [
+          {
+            path: 'configuration',
+            name: 'PhysicsConfiguration',
+            component: PhysicsConfiguration
+          }
+        ]
+      },
+      {
         path: 'node-styles',
         component: NodeStylesIndex,
         children: [

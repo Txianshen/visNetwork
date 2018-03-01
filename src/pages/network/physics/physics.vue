@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'nodeStyleIndex'
+  name: 'physicsIndex'
 }
 </script>
 

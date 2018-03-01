@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div id="config"></div>
     <el-container style="height: 1200px;">
       <el-header style="height: 150px; border: 1px solid #eee;">
         <img id="logo_img" src="./assets/visjs.png">
@@ -49,7 +50,14 @@ const tree = [
       },
       {
         id: 7,
-        label: 'physics'
+        label: 'physics',
+        children: [
+          {
+            id: 71,
+            label: 'configuration',
+            path: 'PhysicsConfiguration'
+          }
+        ]
       },
       {
         id: 8,
@@ -107,7 +115,7 @@ const tree = [
           },
           {
             id: 91,
-            label: 'ShapesWithDashedBorders',
+            label: 'shapesWithDashedBorders',
             path: 'ShapesWithDashedBorders'
           },
           {
@@ -174,6 +182,13 @@ export default {
     width: 100%;
     max-height: 150px;
     /*margin: 0 auto;*/
+  }
+
+  #config {
+    float: left;
+    /*display: inline;*/
+    width: 100px;
+    height: 200px;
   }
 
   ul {
