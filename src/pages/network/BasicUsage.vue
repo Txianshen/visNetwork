@@ -6,7 +6,9 @@
     <div>
       <button @click="changeData">change data</button>
       <button @click="toogleManipulate">toogle manipulation</button>
-      <vis-network :graph-data="graphData" :options="options"></vis-network>
+      <vis-network :graph-data="graphData"
+                   :options="options"
+                   :style="containerStyle"></vis-network>
     </div>
   </div>
 </template>
@@ -41,7 +43,12 @@ export default ({
     return {
       manipulationEnabled: false,
       graphData: {},
-      options: {}
+      options: {},
+      containerStyle: {
+        height: '400px',
+        width: '100%',
+        border: '1px solid lightgrey'
+      }
     }
   },
   mounted () {

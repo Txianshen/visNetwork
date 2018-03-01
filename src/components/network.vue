@@ -5,6 +5,38 @@
 <script>
 import vis from 'vis'
 
+const anotherOptions = {
+  nodes: {
+    shape: 'circle',
+    font: {
+      size: 14
+    }
+  },
+  groups: {
+    usergroups: {
+      font: {
+        // size: 30,
+        color: 'blue'
+      },
+      shape: 'icon',
+      icon: {
+        face: 'FontAwesome',
+        code: '\uf0c0',
+        size: 50,
+        color: '#57169a'
+      }
+    },
+    users: {
+      shape: 'icon',
+      icon: {
+        face: 'FontAwesome',
+        code: '\uf007',
+        size: 50,
+        color: '#aa00ff'
+      }
+    }
+  }
+}
 export default {
   name: 'vis-network',
   data () {
@@ -25,7 +57,7 @@ export default {
     options: {
       type: Object,
       default: function () {
-        return {}
+        return anotherOptions
       }
     }
   },
@@ -43,11 +75,13 @@ export default {
     options: {
       deep: true,
       handler (newVal, oldVal) {
-        console.log('graph options:', this.options)
+        // console.log('graph options:', this.options)
         var copyOfOptions = JSON.parse(JSON.stringify(this.options))
-        console.log('graph options copy:', copyOfOptions)
-        this.network.setOptions(copyOfOptions)
-        // this.network.setOptions(this.options)
+        console.log('graph options copy in watcher:', copyOfOptions)
+        // console.log('another options in watcher:', anotherOptions)
+        // console.log(JSON.stringify(copyOfOptions) === JSON.stringify(anotherOptions))
+        // this.network.setOptions(copyOfOptions)
+        this.network.setOptions(this.options)
       }
     }
   },
@@ -62,13 +96,13 @@ export default {
   },
   mounted () {
     this.container = this.$refs.mynetwork
-    // this.container.style = 'height: 400px;'
-    // var container = document.getElementById('mynetwork')
-    this.nodes = new vis.DataSet(this.graphData.nodes)
-    this.edges = new vis.DataSet(this.graphData.edges)
-    var dataSet = {nodes: this.nodes, edges: this.edges}
-    var copyOfOptions = JSON.parse(JSON.stringify(this.options))
-    this.network = new vis.Network(this.container, dataSet, copyOfOptions)
+    // this.nodes = this.graphData.nodes
+    // this.edges = this.graphData.edges
+    // var dataSet = {nodes: this.nodes, edges: this.edges}
+    // console.log('graph options copy in mounted:', options)
+    // console.log('dataset in mounted:', dataSet)
+
+    this.network = new vis.Network(this.container, {}, {})
     console.log('network object:', this.network)
   }
 }

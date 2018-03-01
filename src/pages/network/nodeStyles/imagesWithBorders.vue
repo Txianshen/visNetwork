@@ -42,20 +42,21 @@ export default {
       {id: 12, shape: 'image', image: DIR + '12.png'},
       {id: 13, shape: 'image', image: DIR + '13.png'},
       {id: 14, shape: 'image', image: DIR + '14.png'},
-      {
-        id: 15,
-        shape: 'image',
-        image: DIR + 'missing.png',
-        brokenImage: DIR + 'missingBrokenImage.png',
-        label: 'when images\nfail\nto load'
-      },
-      {
-        id: 16,
-        shape: 'image',
-        image: DIR + 'anotherMissing.png',
-        brokenImage: DIR + '9.png',
-        label: 'fallback image in action'
-      }
+      // {
+      //   id: 15,
+      //   shape: 'image',
+      //   image: DIR + 'missing.png',
+      //   brokenImage: DIR + 'missingBrokenImage.png',
+      //   label: 'when images\nfail\nto load'
+      // },
+      // {
+      //   id: 16,
+      //   shape: 'image',
+      //   image: DIR + 'anotherMissing.png',
+      //   brokenImage: DIR + '9.png',
+      //   label: 'fallback image in action'
+      // },
+      {id: 17, shape: 'image', image: DIR + 'logo.png'}
     ]
 
     // create connections between people
@@ -93,7 +94,8 @@ export default {
         },
         font: {color: '#eeeeee'},
         shapeProperties: {
-          useBorderWithImage: true
+          useBorderWithImage: true,
+          useImageSize: false
         }
       },
       edges: {

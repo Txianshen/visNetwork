@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@fortawesome/vue-fontawesome": "0.0.22",
     "element-ui": "^2.2.0",
     "vis": "^4.21.0",
     "vue": "^2.5.2",

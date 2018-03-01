@@ -66,9 +66,14 @@ const tree = [
             path: 'Images'
           },
           {
-            id: 83,
+            id: 88,
             label: 'imagesWithBorders',
             path: 'ImagesWithBorders'
+          },
+          {
+            id: 87,
+            label: 'circularImages',
+            path: 'CircularImages'
           },
           {
             id: 84,
@@ -79,6 +84,36 @@ const tree = [
             id: 85,
             label: 'shadows',
             path: 'Shadows'
+          },
+          {
+            id: 86,
+            label: 'colors',
+            path: 'Colors'
+          },
+          {
+            id: 88,
+            label: 'icons',
+            path: 'Icons'
+          },
+          {
+            id: 89,
+            label: 'customGroups',
+            path: 'CustomGroups'
+          },
+          {
+            id: 90,
+            label: 'HTMLInNodes',
+            path: 'HTMLInNodes'
+          },
+          {
+            id: 91,
+            label: 'ShapesWithDashedBorders',
+            path: 'ShapesWithDashedBorders'
+          },
+          {
+            id: 92,
+            label: 'widthHeight',
+            path: 'WidthHeight'
           }
         ]
       }]
