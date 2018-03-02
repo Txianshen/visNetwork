@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <div id="config"></div>
+    <!--<div id="config"></div>-->
     <el-container style="height: 1200px;">
-      <el-header style="height: 150px; border: 1px solid #eee;">
-        <img id="logo_img" src="./assets/visjs.png">
+      <el-header style="text-align: center; border: 1px solid #eee;">
+        <!--<img id="logo_img" src="./assets/visjs.png">-->
+        <h1>Vis.js Examples with Vue.js</h1>
       </el-header>
       <el-container>
         <el-aside width="200px" style="border: 1px solid #eee; padding: 20px 0px;">
@@ -21,7 +22,7 @@
             @node-click="handleClick">
           </el-tree>
         </el-aside>
-        <el-main width="400px">
+        <el-main>
           <router-view></router-view>
         </el-main>
       </el-container>
@@ -39,92 +40,52 @@ const tree = [
     icon: 'el-icon-message',
     children: [
       {
-        id: 5,
+        id: 11,
         label: 'Simple',
         path: 'Simple'
       },
       {
-        id: 6,
+        id: 31,
         label: 'Basic Usage',
         path: 'BasicUsage'
       },
       {
-        id: 7,
+        id: 51,
         label: 'physics',
         children: [
           {
-            id: 71,
+            id: 52,
             label: 'configuration',
             path: 'PhysicsConfiguration'
           }
         ]
       },
       {
-        id: 8,
+        id: 71,
         label: 'nodeStyles',
         children: [
-          {
-            id: 81,
-            label: 'shapes',
-            path: 'Shapes'
-          },
-          {
-            id: 82,
-            label: 'images',
-            path: 'Images'
-          },
-          {
-            id: 88,
-            label: 'imagesWithBorders',
-            path: 'ImagesWithBorders'
-          },
-          {
-            id: 87,
-            label: 'circularImages',
-            path: 'CircularImages'
-          },
-          {
-            id: 84,
-            label: 'groups',
-            path: 'Groups'
-          },
-          {
-            id: 85,
-            label: 'shadows',
-            path: 'Shadows'
-          },
-          {
-            id: 86,
-            label: 'colors',
-            path: 'Colors'
-          },
-          {
-            id: 88,
-            label: 'icons',
-            path: 'Icons'
-          },
-          {
-            id: 89,
-            label: 'customGroups',
-            path: 'CustomGroups'
-          },
-          {
-            id: 90,
-            label: 'HTMLInNodes',
-            path: 'HTMLInNodes'
-          },
-          {
-            id: 91,
-            label: 'shapesWithDashedBorders',
-            path: 'ShapesWithDashedBorders'
-          },
-          {
-            id: 92,
-            label: 'widthHeight',
-            path: 'WidthHeight'
-          }
+          { id: 72, label: 'shapes', path: 'Shapes' },
+          { id: 73, label: 'images', path: 'Images' },
+          { id: 74, label: 'imagesWithBorders', path: 'ImagesWithBorders' },
+          { id: 75, label: 'circularImages', path: 'CircularImages' },
+          { id: 76, label: 'groups', path: 'Groups' },
+          { id: 77, label: 'shadows', path: 'Shadows' },
+          { id: 78, label: 'colors', path: 'Colors' },
+          { id: 79, label: 'icons', path: 'Icons' },
+          { id: 80, label: 'customGroups', path: 'CustomGroups' },
+          { id: 81, label: 'HTMLInNodes', path: 'HTMLInNodes' },
+          { id: 82, label: 'shapesWithDashedBorders', path: 'ShapesWithDashedBorders' },
+          { id: 83, label: 'widthHeight', path: 'WidthHeight' }
         ]
-      }]
+      },
+      {
+        id: 91,
+        label: 'layout',
+        children: [
+          { id: 92, label: 'hierarchicalLayout', path: 'HierarchicalLayout' }
+        ]
+      }
+    ]
   },
   {
     id: 2,

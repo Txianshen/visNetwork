@@ -18,6 +18,7 @@ import HTMLInNodes from '../pages/network/nodeStyles/HTMLInNodes'
 import ShapesWithDashedBorders from '../pages/network/nodeStyles/shapesWithDashedBorders'
 import WidthHeight from '../pages/network/nodeStyles/widthHeight'
 import {Physics, PhysicsConfiguration} from '../pages/network/physics'
+import {Layout, HierarchicalLayout} from '../pages/network/layout'
 
 Vue.use(Router)
 
@@ -49,6 +50,17 @@ export default new Router({
             path: 'configuration',
             name: 'PhysicsConfiguration',
             component: PhysicsConfiguration
+          }
+        ]
+      },
+      {
+        path: 'layout',
+        component: Layout,
+        children: [
+          {
+            path: 'hierarchicalLayout',
+            name: 'HierarchicalLayout',
+            component: HierarchicalLayout
           }
         ]
       },

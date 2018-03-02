@@ -18,8 +18,8 @@ export default {
       graphData: {},
       options: {},
       containerStyle: {
-        width: '1000px',
-        height: '800px',
+        width: '100%',
+        height: '600px',
         border: '1px solid lightgray'
       }
     }
