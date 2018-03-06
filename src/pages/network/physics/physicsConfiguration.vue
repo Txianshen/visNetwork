@@ -1,21 +1,22 @@
 <template>
   <div>
     <h2>Playing with Physics</h2>
-    <!--<div style="font-size:14px; text-align: justify;">-->
-    <p>
-      Every dataset is different. Nodes can have different sizes based on content, interconnectivity can be high or
-      low etc. Because of this, the network configurator can be used
-      to explore which settings may be good for him or her. This is ment to be used during the development phase when
-      you are implementing vis.js. Once you have found
-      settings you are happy with, you can supply them to network using the documented physics options.
-    </p>
-    <br/>
+    <div style="font-size:14px; text-align: justify;">
+      <p>
+        Every dataset is different. Nodes can have different sizes based on content, interconnectivity can be high or
+        low etc. Because of this, the network configurator can be used
+        to explore which settings may be good for him or her. This is ment to be used during the development phase when
+        you are implementing vis.js. Once you have found
+        settings you are happy with, you can supply them to network using the documented physics options.
+      </p>
+      <br/>
+    </div>
     <vis-network :graph-data="graphData"
                  :options="options"
                  :style="containerStyle">
     </vis-network>
-
-    <p id="selection"></p></div>
+    <div id="config"></div>
+  </div>
 </template>
 
 <script>
@@ -28,8 +29,8 @@ export default {
       options: {},
       containerStyle: {
         // float: 'left',
-        width: '600px',
-        height: '600px',
+        width: '800px',
+        height: '400px',
         border: '1px solid lightgray',
         margin: '5px'
       }
@@ -42,19 +43,19 @@ export default {
     this.options = {
       physics: {
         stabilization: false
+      },
+      configure: {
+        filter: function (option, path) {
+          if (path.indexOf('physics') !== -1) {
+            return true
+          }
+          if (path.indexOf('smooth') !== -1 || option === 'smooth') {
+            return true
+          }
+          return false
+        },
+        container: document.getElementById('config')
       }
-      // configure: {
-      //   filter: function (option, path) {
-      //     if (path.indexOf('physics') !== -1) {
-      //       return true
-      //     }
-      //     if (path.indexOf('smooth') !== -1 || option === 'smooth') {
-      //       return true
-      //     }
-      //     return false
-      //   },
-      //   container: document.getElementById('config')
-      // }
     }
   }
 }
@@ -63,5 +64,9 @@ export default {
 <style scoped>
   p {
     max-width:700px;
+  }
+  #config {
+    float: left;
+    width: 400px;
   }
 </style>

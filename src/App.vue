@@ -82,7 +82,12 @@ const tree = [
         id: 91,
         label: 'layout',
         children: [
-          { id: 92, label: 'hierarchicalLayout', path: 'HierarchicalLayout' }
+          { id: 93, label: 'fixedRandomSeed', path: 'RandomSeed' },
+          { id: 93, label: 'hierarchicalLayout', path: 'HierarchicalLayout' },
+          { id: 94, label: 'userDefined', path: 'UserDefined' },
+          { id: 95, label: 'bigUserDefined', path: 'BigUserDefined' },
+          { id: 96, label: 'layoutMethods', path: 'LayoutMethods' },
+          { id: 97, label: 'withoutPhysics', path: 'WithoutPhysics' }
         ]
       }
     ]

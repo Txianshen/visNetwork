@@ -6,6 +6,7 @@
 
 <script>
 import vis from 'vis'
+import _ from 'lodash'
 
 const events = [
   // Events triggered by human interaction, selection, dragging etc.
@@ -47,7 +48,9 @@ const events = [
 export default {
   name: 'vis-network',
   data () {
-    return {}
+    return {
+      localOptions: this.options
+    }
   },
   props: {
     graphData: {
@@ -80,8 +83,13 @@ export default {
     options: {
       deep: true,
       handler (newVal, oldVal) {
-        // console.log('graph options:', this.options)
-        this.network.setOptions(this.options)
+        // If passing this.options directly to setOptions as the param,
+        // this.options might be modified by setOptions method,
+        // that would trigger Vue.js infinite update loop
+        this.localOptions = _.cloneDeep(this.options)
+        this.network.setOptions(this.localOptions)
+        // this.network.setOptions(this.options)
+        console.log('in options watcher')
       }
     }
   },
@@ -89,7 +97,6 @@ export default {
     onEvent (name) {
       return params => {
         this.$emit(name, params)
-        console.log('this object:', this)
       }
       // var component = this
       // return function (params) {
@@ -101,12 +108,9 @@ export default {
   mounted () {
     this.container = this.$refs.mynetwork
 
-    this.network = new vis.Network(this.container, this.graphData, this.options)
+    this.network = new vis.Network(this.container, this.graphData, this.localOptions)
 
     // add event listener
-    // events.forEach(eventName =>
-    //   this.network.on(eventName, this.onEvent(eventName))
-    // )
     for (const eventName of events) {
       this.network.on(eventName, this.onEvent(eventName))
     }
