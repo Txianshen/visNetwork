@@ -4,6 +4,16 @@ import HelloWorld from '../pages/HelloWorld'
 import NetworkIndex from '../pages/network/index'
 import Simple from '../pages/network/Simple'
 import BasicUsage from '../pages/network/BasicUsage'
+import {
+  EdgeStyles, Arrows, ArrowTypes, EdgeColors, Dashes, Smooth, SmoothWorldCup
+} from '../pages/network/edgeStyles'
+import {ImageSelected} from '../pages/network/imageSelected'
+import {
+  Labels, Alignment, Background, ColorAndSize, Margins, MultiFont, Stroke, MultiLineText
+} from '../pages/network/labels'
+import {
+  Layout, RandomSeed, HierarchicalLayout, UserDefined, BigUserDefined, LayoutMethods, WithoutPhysics
+} from '../pages/network/layout'
 import NodeStylesIndex from '../pages/network/nodeStyles/index'
 import Shapes from '../pages/network/nodeStyles/shapes'
 import Images from '../pages/network/nodeStyles/images'
@@ -18,12 +28,6 @@ import HTMLInNodes from '../pages/network/nodeStyles/HTMLInNodes'
 import ShapesWithDashedBorders from '../pages/network/nodeStyles/shapesWithDashedBorders'
 import WidthHeight from '../pages/network/nodeStyles/widthHeight'
 import {Physics, PhysicsConfiguration} from '../pages/network/physics'
-import {
-  Layout, RandomSeed, HierarchicalLayout, UserDefined, BigUserDefined, LayoutMethods, WithoutPhysics
-} from '../pages/network/layout'
-import {
-  Labels, Alignment, Background, ColorAndSize, Margins, MultiFont, Stroke, MultiLineText
-} from '../pages/network/labels'
 
 Vue.use(Router)
 
@@ -48,6 +52,43 @@ export default new Router({
         component: Simple
       },
       {
+        path: 'edgeStyles',
+        name: 'EdgeStyles',
+        component: EdgeStyles,
+        children: [
+          {
+            path: 'arrows',
+            name: 'Arrows',
+            component: Arrows
+          },
+          {
+            path: 'arrowTypes',
+            name: 'ArrowTypes',
+            component: ArrowTypes
+          },
+          {
+            path: 'edgeColors',
+            name: 'EdgeColors',
+            component: EdgeColors
+          },
+          {
+            path: 'dashes',
+            name: 'Dashes',
+            component: Dashes
+          },
+          {
+            path: 'smooth',
+            name: 'Smooth',
+            component: Smooth
+          },
+          {
+            path: 'smoothWorldCup',
+            name: 'SmoothWorldCup',
+            component: SmoothWorldCup
+          }
+        ]
+      },
+      {
         path: 'physics',
         component: Physics,
         children: [
@@ -57,6 +98,11 @@ export default new Router({
             component: PhysicsConfiguration
           }
         ]
+      },
+      {
+        path: 'imageSelected',
+        name: 'ImageSelected',
+        component: ImageSelected
       },
       {
         path: 'labels',

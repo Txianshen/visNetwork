@@ -735,8 +735,8 @@ var nodes = [
   {id: 734, label: 'Yuto Nagatomo', title: 'Country: ' + 'Japan' + '<br>' + 'Team: ' + 'Internazionale', value: 29, group: 27, x: 395.00394, y: 607.5659},
   {id: 735, label: 'Yuya Osako', title: 'Country: ' + 'Japan' + '<br>' + 'Team: ' + '1860 München', value: 22, group: 27, x: 806.69904, y: 633.54565},
   {id: 736, label: 'Zvjezdan Misimovic', title: 'Country: ' + 'Bosnia and Herzegovina' + '<br>' + 'Team: ' + 'Guizhou Renhe', value: 22, group: 20, x: 1277.4697, y: -479.12265}
+]
 
-];
 // create an array with edges
 var edges = [
   {from: 1, to: 15},
@@ -9967,4 +9967,6 @@ var edges = [
   {from: 730, to: 735},
   {from: 732, to: 733},
   {from: 734, to: 735}
-];
+]
+
+export {nodes as NODES, edges as EDGES}

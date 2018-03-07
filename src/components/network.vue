@@ -94,6 +94,14 @@ export default {
     }
   },
   methods: {
+    redraw () {
+      this.network.redraw()
+    },
+    renew (data, options) {
+      console.log('called renew()')
+      this.network.destroy()
+      this.network = new vis.Network(this.container, data, options)
+    },
     onEvent (name) {
       return params => {
         this.$emit(name, params)

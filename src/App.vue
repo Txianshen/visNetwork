@@ -50,6 +50,18 @@ const tree = [
         path: 'BasicUsage'
       },
       {
+        id: 40,
+        label: 'edgeStyles',
+        children: [
+          { id: 41, label: 'arrows', path: 'Arrows' },
+          { id: 42, label: 'arrowTypes', path: 'ArrowTypes' },
+          { id: 43, label: 'edgeColors', path: 'EdgeColors' },
+          { id: 44, label: 'dashes', path: 'Dashes' },
+          { id: 45, label: 'smooth', path: 'Smooth' },
+          { id: 46, label: 'smoothWorldCup', path: 'SmoothWorldCup' }
+        ]
+      },
+      {
         id: 51,
         label: 'physics',
         children: [
@@ -88,6 +100,13 @@ const tree = [
           { id: 95, label: 'bigUserDefined', path: 'BigUserDefined' },
           { id: 96, label: 'layoutMethods', path: 'LayoutMethods' },
           { id: 97, label: 'withoutPhysics', path: 'WithoutPhysics' }
+        ]
+      },
+      {
+        id: 98,
+        label: 'imageSelected',
+        children: [
+          { id: 99, label: 'imageSelected', path: 'ImageSelected' }
         ]
       },
       {
