@@ -89,6 +89,19 @@ const tree = [
           { id: 96, label: 'layoutMethods', path: 'LayoutMethods' },
           { id: 97, label: 'withoutPhysics', path: 'WithoutPhysics' }
         ]
+      },
+      {
+        id: 101,
+        label: 'labels',
+        children: [
+          { id: 102, label: 'alignment', path: 'Alignment' },
+          { id: 103, label: 'background', path: 'Background' },
+          { id: 104, label: 'colorAndSize', path: 'ColorAndSize' },
+          { id: 105, label: 'margins', path: 'Margins' },
+          { id: 106, label: 'multiFont', path: 'MultiFont' },
+          { id: 107, label: 'stroke', path: 'Stroke' },
+          { id: 108, label: 'multilineText', path: 'MultilineText' }
+        ]
       }
     ]
   },

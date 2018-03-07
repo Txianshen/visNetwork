@@ -21,6 +21,9 @@ import {Physics, PhysicsConfiguration} from '../pages/network/physics'
 import {
   Layout, RandomSeed, HierarchicalLayout, UserDefined, BigUserDefined, LayoutMethods, WithoutPhysics
 } from '../pages/network/layout'
+import {
+  Labels, Alignment, Background, ColorAndSize, Margins, MultiFont, Stroke, MultiLineText
+} from '../pages/network/labels'
 
 Vue.use(Router)
 
@@ -52,6 +55,47 @@ export default new Router({
             path: 'configuration',
             name: 'PhysicsConfiguration',
             component: PhysicsConfiguration
+          }
+        ]
+      },
+      {
+        path: 'labels',
+        component: Labels,
+        children: [
+          {
+            path: 'alignment',
+            name: 'Alignment',
+            component: Alignment
+          },
+          {
+            path: 'background',
+            name: 'Background',
+            component: Background
+          },
+          {
+            path: 'colorAndSize',
+            name: 'ColorAndSize',
+            component: ColorAndSize
+          },
+          {
+            path: 'margins',
+            name: 'Margins',
+            component: Margins
+          },
+          {
+            path: 'multiFont',
+            name: 'MultiFont',
+            component: MultiFont
+          },
+          {
+            path: 'stroke',
+            name: 'Stroke',
+            component: Stroke
+          },
+          {
+            path: 'multilineText',
+            name: 'MultilineText',
+            component: MultiLineText
           }
         ]
       },
