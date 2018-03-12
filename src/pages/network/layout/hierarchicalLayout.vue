@@ -32,6 +32,7 @@
 </template>
 
 <script type="text/javascript">
+import BUS from '@/eventBus'
 import {getScaleFreeNetwork} from '../exampleUtil'
 
 export default {
@@ -43,16 +44,28 @@ export default {
       graphData: {},
       options: {},
       containerStyle: {
-        width: '100%',
-        height: '600px',
+        width: document.body.clientWidth - 60 + 'px',
+        height: window.innerHeight + 'px',
         border: '1px solid lightgray',
         margin: '5px'
       }
     }
   },
   mounted () {
+    // this.$nextTick(() => {
+    //   this.containerStyle.width = this.$el.offsetWidth - 100 + 'px'
+    // })
     // randomly create some nodes and edges
+    BUS.$on('aside-collapse', asideWidth => {
+      // console.log(this.$el.offsetWidth)
+      // console.log('collpased' + asideWidth)
+      this.containerStyle.width = document.body.clientWidth - 40 - asideWidth + 'px'
+    })
     this.graphData = getScaleFreeNetwork(this.nodeCount)
+  },
+  updated () {
+    // this.containerStyle.width = this.$el.offsetWidth - 100 + 'px'
+    // console.log(this.$el.offsetWidth)
   },
   methods: {
     destroy () {
