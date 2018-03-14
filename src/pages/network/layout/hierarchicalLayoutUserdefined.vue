@@ -29,9 +29,9 @@ export default {
       graphData: {},
       options: {},
       containerStyle: {
-        width: '800px',
-        height: '400px',
-        border: '1px solid lightgray',
+        // width: '800px',
+        // height: '400px',
+        // border: '1px solid lightgray',
         margin: '5px'
       },
       directionInput: 'UD',

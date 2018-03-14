@@ -14,19 +14,11 @@ import {
 import {
   Layout, RandomSeed, HierarchicalLayout, UserDefined, BigUserDefined, LayoutMethods, WithoutPhysics
 } from '../pages/network/layout'
-import NodeStylesIndex from '../pages/network/nodeStyles/index'
-import Shapes from '../pages/network/nodeStyles/shapes'
-import Images from '../pages/network/nodeStyles/images'
-import ImagesWithBorders from '../pages/network/nodeStyles/imagesWithBorders'
-import Groups from '../pages/network/nodeStyles/groups'
-import Shadows from '../pages/network/nodeStyles/shadows'
-import Colors from '../pages/network/nodeStyles/colors'
-import CircularImages from '../pages/network/nodeStyles/circularImages'
-import Icons from '../pages/network/nodeStyles/icons'
-import CustomGroups from '../pages/network/nodeStyles/customGroups'
-import HTMLInNodes from '../pages/network/nodeStyles/HTMLInNodes'
-import ShapesWithDashedBorders from '../pages/network/nodeStyles/shapesWithDashedBorders'
-import WidthHeight from '../pages/network/nodeStyles/widthHeight'
+import {
+  NodeStylesIndex, Shapes, Images, ImagesWithBorders, Groups, Shadows, Colors,
+  CircularImages, Icons, CustomGroups, HTMLInNodes, ShapesWithDashedBorders,
+  WidthHeight
+} from '../pages/network/nodeStyles'
 import {Physics, PhysicsConfiguration} from '../pages/network/physics'
 
 Vue.use(Router)

@@ -12,9 +12,9 @@ export default {
       graphData: {},
       options: {},
       containerStyle: {
-        width: '800px',
-        height: '800px',
-        border: '1px solid lightgray',
+        // width: '800px',
+        // height: '800px',
+        // border: '1px solid lightgray',
         backgroundColor: '#333333'
       }
     }

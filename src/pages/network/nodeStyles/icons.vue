@@ -39,9 +39,9 @@ export default {
       optionsFA: {},
       optionsIO: {},
       containerStyle: {
-        height: '300px',
-        width: '700px',
-        border: '1px solid lightgrey'
+        // height: '300px',
+        // width: '700px',
+        // border: '1px solid lightgrey'
       }
     }
   },

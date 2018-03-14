@@ -12,8 +12,8 @@ export default {
       graphData: {},
       options: {},
       containerStyle: {
-        width: '100%',
-        height: '600px',
+        // width: '100%',
+        // height: '600px',
         border: '1px solid #444444',
         backgroundColor: '#dddddd'
       }

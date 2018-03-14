@@ -19,9 +19,9 @@ export default {
       graphData: {},
       options: {},
       containerStyle: {
-        width: '600px',
-        height: '600px',
-        border: '1px solid lightgray'
+        // width: '600px',
+        // height: '600px',
+        // border: '1px solid lightgray'
       }
     }
   },

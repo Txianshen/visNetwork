@@ -39,9 +39,9 @@ export default {
         }
       },
       containerStyle: {
-        height: '400px',
-        width: '100%',
-        border: '1px solid lightgray'
+        // height: '400px',
+        // width: '100%',
+        // border: '1px solid lightgray'
       }
     }
   },

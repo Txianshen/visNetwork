@@ -1,39 +1,31 @@
 <template>
   <div id="app">
     <!--<div id="config"></div>-->
-    <el-container style="">
-      <el-header style="text-align: center; height: 60px; border: 1px solid #eee;">
-        <!--<img id="logo_img" src="./assets/visjs.png">-->
-        <h1>Vis.js Examples with Vue.js</h1>
-      </el-header>
-      <el-container>
-        <el-aside id="aside" :width="asideWidth" style="border: 1px solid #eee; padding: 20px 0px;">
-          <div v-if="collapsed" @click="toggleCollapse" style="height: 100%;">
-            <i class="el-icon-caret-right"></i>
-          </div>
-          <div v-else>
-            <i class="el-icon-caret-left" @click="toggleCollapse"></i>
-            <el-input
-              placeholder="输入关键字"
-              v-model="filterText">
-            </el-input>
-            <el-tree
-              class="filter-tree"
-              :data="menus"
-              :props="defaultProps"
-              :default-expand-all="false"
-              :filter-node-method="filterNode"
-              ref="tree2"
-              @node-click="handleClick">
-            </el-tree>
-          </div>
-        </el-aside>
-        <el-main>
-          <router-view></router-view>
-        </el-main>
-      </el-container>
+    <div id="header" style="">
+      <!--<img id="logo_img" src="./assets/visjs.png">-->
+      <h1>Vis.js Examples with Vue.js</h1>
+    </div>
+    <div id="aside" :style="asideStyle">
+      <div v-if="collapsed" @click="toggleCollapse" style="height: 100%;">
+        <i class="el-icon-caret-right"></i>
+      </div>
+      <div v-else>
+        <i class="el-icon-caret-left" @click="toggleCollapse" style="height: 3vh"></i>
+        <el-input placeholder="输入关键字" v-model="filterText"></el-input>
+        <el-tree
+          style="margin-top: 1vh; margin-bottom: 1vh; height: 85vh;overflow: auto"
+          class="filter-tree"
+          :data="menus"
+          :props="defaultProps"
+          :default-expand-all="true"
+          :filter-node-method="filterNode"
+          ref="tree2"
+          @node-click="handleClick">
+        </el-tree>
+      </div>
+    </div>
+    <router-view></router-view>
       <!--<el-footer></el-footer>-->
-    </el-container>
   </div>
 </template>
 
@@ -158,11 +150,26 @@ export default {
     }
   },
   computed: {
-    asideWidth () {
+    asideStyle () {
+      var width = ''
+      var height = ''
       if (this.collapsed) {
-        return '20px'
+        width = '20px'
       } else {
-        return '200px'
+        width = '200px'
+        height = '100vh'
+      }
+      return {
+        position: 'fixed',
+        left: '0px',
+        top: '0px',
+        zIndex: 1,
+        width: width,
+        height: height,
+        border: '1px solid #aaaaaa',
+        backgroundColor: 'lightgray',
+        paddingLeft: '5px',
+        paddingRight: '5px'
       }
     }
   },
@@ -194,20 +201,38 @@ export default {
     /*text-align: center;*/
     color: #2c3e50;
     margin-top: 0px;
+    /*height: 1000px;*/
   }
 
-  #logo_img {
-    display: block;
-    width: 100%;
-    max-height: 150px;
-    /*margin: 0 auto;*/
+  #header {
+    /*position: fixed;*/
+    /*left: 0px;*/
+    /*top: 0px;*/
+    /*width: 100%;*/
+    text-align: center;
+    /*height: 60px;*/
+    /*border: 1px solid #eee;*/
+  }
+
+  #aside {
+    /*position: fixed;*/
+    /*left: 0px;*/
+    /*top: 10px;*/
+    /*width: 200px;*/
+    /*height: 600px;*/
+    /*border: 1px solid #eee;*/
+    /*background: #00aa00;*/
   }
 
   #config {
-    float: left;
+    /*float: left;*/
+    background: #555555;
     /*display: inline;*/
-    width: 100px;
-    height: 200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
   }
 
   ul {
@@ -218,10 +243,6 @@ export default {
   li {
     /*display: inline-block;*/
     margin: 0 10px;
-  }
-
-  .el-main {
-    /*width: 400px;*/
   }
 
 </style>

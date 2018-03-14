@@ -45,9 +45,9 @@ export default ({
       graphData: {},
       options: {},
       containerStyle: {
-        height: '400px',
-        width: '100%',
-        border: '1px solid lightgrey'
+        // height: '400px',
+        // width: '100%',
+        // border: '1px solid lightgrey'
       }
     }
   },

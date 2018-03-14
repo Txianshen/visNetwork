@@ -44,9 +44,9 @@ export default {
       graphData: {},
       options: {},
       containerStyle: {
-        width: document.body.clientWidth - 60 + 'px',
-        height: window.innerHeight + 'px',
-        border: '1px solid lightgray',
+        // width: document.body.clientWidth - 60 + 'px',
+        // height: window.innerHeight + 'px',
+        // border: '1px solid lightgray',
         margin: '5px'
       }
     }
@@ -58,7 +58,7 @@ export default {
     // randomly create some nodes and edges
     BUS.$on('aside-collapse', asideWidth => {
       // console.log(this.$el.offsetWidth)
-      // console.log('collpased' + asideWidth)
+      console.log('collpased' + asideWidth)
       this.containerStyle.width = document.body.clientWidth - 40 - asideWidth + 'px'
     })
     this.graphData = getScaleFreeNetwork(this.nodeCount)
