@@ -1,25 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '../pages/HelloWorld'
-import NetworkIndex from '../pages/network/index'
+import NetworkIndex from '../pages/network/network'
 import Simple from '../pages/network/Simple'
 import BasicUsage from '../pages/network/BasicUsage'
-import {
-  EdgeStyles, Arrows, ArrowTypes, EdgeColors, Dashes, Smooth, SmoothWorldCup
-} from '../pages/network/edgeStyles'
-import {ImageSelected} from '../pages/network/imageSelected'
-import {
-  Labels, Alignment, Background, ColorAndSize, Margins, MultiFont, Stroke, MultiLineText
-} from '../pages/network/labels'
-import {
-  Layout, RandomSeed, HierarchicalLayout, UserDefined, BigUserDefined, LayoutMethods, WithoutPhysics
-} from '../pages/network/layout'
-import {
-  NodeStylesIndex, Shapes, Images, ImagesWithBorders, Groups, Shadows, Colors,
-  CircularImages, Icons, CustomGroups, HTMLInNodes, ShapesWithDashedBorders,
-  WidthHeight
-} from '../pages/network/nodeStyles'
-import {Physics, PhysicsConfiguration} from '../pages/network/physics'
+import {EdgeStyles, EdgeStylesRoutes} from '../pages/network/edgeStyles/routes'
+import {Events, EventsRoutes} from '../pages/network/events/routes'
+import {ExampleApplications, ExampleApplicationsRoutes} from '../pages/network/exampleApplications/routes'
+import {ImageSelected} from '../pages/network/imageSelected/routes'
+import {Labels, LabelsRoutes} from '../pages/network/labels/routes'
+import {Layout, LayoutRoutes} from '../pages/network/layout/routes'
+import {NodeStyles, NodeStylesRoutes} from '../pages/network/nodeStyles/routes'
+import {Physics, PhysicsRoutes} from '../pages/network/physics/routes'
 
 Vue.use(Router)
 
@@ -43,53 +35,25 @@ export default new Router({
         name: 'Simple',
         component: Simple
       },
-      {
-        path: 'edgeStyles',
+      { path: 'edgeStyles',
         name: 'EdgeStyles',
         component: EdgeStyles,
-        children: [
-          {
-            path: 'arrows',
-            name: 'Arrows',
-            component: Arrows
-          },
-          {
-            path: 'arrowTypes',
-            name: 'ArrowTypes',
-            component: ArrowTypes
-          },
-          {
-            path: 'edgeColors',
-            name: 'EdgeColors',
-            component: EdgeColors
-          },
-          {
-            path: 'dashes',
-            name: 'Dashes',
-            component: Dashes
-          },
-          {
-            path: 'smooth',
-            name: 'Smooth',
-            component: Smooth
-          },
-          {
-            path: 'smoothWorldCup',
-            name: 'SmoothWorldCup',
-            component: SmoothWorldCup
-          }
-        ]
+        children: EdgeStylesRoutes
+      },
+      { path: 'events',
+        name: 'Events',
+        component: Events,
+        children: EventsRoutes
       },
       {
         path: 'physics',
         component: Physics,
-        children: [
-          {
-            path: 'configuration',
-            name: 'PhysicsConfiguration',
-            component: PhysicsConfiguration
-          }
-        ]
+        children: PhysicsRoutes
+      },
+      {
+        path: 'exampleApplications',
+        component: ExampleApplications,
+        children: ExampleApplicationsRoutes
       },
       {
         path: 'imageSelected',
@@ -99,97 +63,17 @@ export default new Router({
       {
         path: 'labels',
         component: Labels,
-        children: [
-          {
-            path: 'alignment',
-            name: 'Alignment',
-            component: Alignment
-          },
-          {
-            path: 'background',
-            name: 'Background',
-            component: Background
-          },
-          {
-            path: 'colorAndSize',
-            name: 'ColorAndSize',
-            component: ColorAndSize
-          },
-          {
-            path: 'margins',
-            name: 'Margins',
-            component: Margins
-          },
-          {
-            path: 'multiFont',
-            name: 'MultiFont',
-            component: MultiFont
-          },
-          {
-            path: 'stroke',
-            name: 'Stroke',
-            component: Stroke
-          },
-          {
-            path: 'multilineText',
-            name: 'MultilineText',
-            component: MultiLineText
-          }
-        ]
+        children: LabelsRoutes
       },
       {
         path: 'layout',
         component: Layout,
-        children: [
-          {
-            path: 'randomSeed',
-            name: 'RandomSeed',
-            component: RandomSeed
-          },
-          {
-            path: 'hierarchicalLayout',
-            name: 'HierarchicalLayout',
-            component: HierarchicalLayout
-          },
-          {
-            path: 'userDefined',
-            name: 'UserDefined',
-            component: UserDefined
-          },
-          {
-            path: 'bigUserDefined',
-            name: 'BigUserDefined',
-            component: BigUserDefined
-          },
-          {
-            path: 'layoutMethods',
-            name: 'LayoutMethods',
-            component: LayoutMethods
-          },
-          {
-            path: 'withoutPhysics',
-            name: 'WithoutPhysics',
-            component: WithoutPhysics
-          }
-        ]
+        children: LayoutRoutes
       },
       {
         path: 'node-styles',
-        component: NodeStylesIndex,
-        children: [
-          { path: 'shapes', name: 'Shapes', component: Shapes },
-          { path: 'images', name: 'Images', component: Images },
-          { path: 'imagesWithBorders', name: 'ImagesWithBorders', component: ImagesWithBorders },
-          { path: 'groups', name: 'Groups', component: Groups },
-          { path: 'shadows', name: 'Shadows', component: Shadows },
-          { path: 'colors', name: 'Colors', component: Colors },
-          { path: 'circularImages', name: 'CircularImages', component: CircularImages },
-          { path: 'icons', name: 'Icons', component: Icons },
-          { path: 'customGroups', name: 'CustomGroups', component: CustomGroups },
-          { path: 'HTMLInNodes', name: 'HTMLInNodes', component: HTMLInNodes },
-          { path: 'shapesWithDashedBorders', name: 'ShapesWithDashedBorders', component: ShapesWithDashedBorders },
-          { path: 'widthHeight', name: 'WidthHeight', component: WidthHeight }
-        ]
+        component: NodeStyles,
+        children: NodeStylesRoutes
       }]
     }
   ]

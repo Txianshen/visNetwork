@@ -11,17 +11,20 @@
       </div>
       <div v-else>
         <i class="el-icon-caret-left" @click="toggleCollapse" style="height: 3vh"></i>
+        <div id="nav" style="position:absolute;right: 2px;background-color:blue;"></div>
         <el-input placeholder="输入关键字" v-model="filterText"></el-input>
-        <el-tree
-          style="margin-top: 1vh; margin-bottom: 1vh; height: 85vh;overflow: auto"
-          class="filter-tree"
-          :data="menus"
-          :props="defaultProps"
-          :default-expand-all="true"
-          :filter-node-method="filterNode"
-          ref="tree2"
-          @node-click="handleClick">
-        </el-tree>
+        <div style="overflow: hidden">
+          <el-tree
+            ref="tree2"
+            style="margin-right: -20px; margin-top: 1vh; margin-bottom: -20px; height: 90vh;overflow: scroll"
+            class="filter-tree"
+            :data="menus"
+            :props="defaultProps"
+            :default-expand-all="true"
+            :filter-node-method="filterNode"
+            @node-click="handleClick">
+          </el-tree>
+        </div>
       </div>
     </div>
     <router-view></router-view>
@@ -61,6 +64,15 @@ const tree = [
         ]
       },
       {
+        id: 47,
+        label: 'events',
+        children: [
+          {id: 48, label: 'interaction', path: 'InteractionEvents'},
+          {id: 49, label: 'physics', path: 'PhysicsEvents'},
+          {id: 50, label: 'render', path: 'RenderEvents'}
+        ]
+      },
+      {
         id: 51,
         label: 'physics',
         children: [
@@ -69,6 +81,13 @@ const tree = [
             label: 'configuration',
             path: 'PhysicsConfiguration'
           }
+        ]
+      },
+      {
+        id: 60,
+        label: 'exampleApplications',
+        children: [
+          {id: 61, label: 'loadingBar', path: 'LoadingBar'}
         ]
       },
       {
@@ -149,6 +168,14 @@ export default {
       }
     }
   },
+  watch: {
+    filterText: {
+      deep: false,
+      handler (val) {
+        this.$refs.tree2.filter(val)
+      }
+    }
+  },
   computed: {
     asideStyle () {
       var width = ''
@@ -179,9 +206,18 @@ export default {
   methods: {
     toggleCollapse () {
       this.collapsed = !this.collapsed
-      BUS.$emit('aside-collapse', parseInt(this.asideWidth))
+      if (!this.collapsed) {
+        this.$nextTick(() => {
+          this.$refs.tree2.filter(this.filterText)
+          BUS.$emit('aside-collapse', parseInt(this.asideWidth))
+        })
+      }
     },
-    filterNode () {
+    filterNode (value, data) {
+      if (!value) {
+        return true
+      }
+      return data.label.indexOf(value) !== -1
     },
     handleClick (data) {
       console.log(data)

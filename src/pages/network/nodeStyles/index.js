@@ -1,4 +1,4 @@
-import NodeStylesIndex from './nodeStyles'
+import NodeStyles from './nodeStyles'
 import Shapes from './shapes'
 import Images from './images'
 import ImagesWithBorders from './imagesWithBorders'
@@ -12,6 +12,6 @@ import HTMLInNodes from './HTMLInNodes'
 import ShapesWithDashedBorders from './shapesWithDashedBorders'
 import WidthHeight from './widthHeight'
 export {
-  NodeStylesIndex, Shapes, Images, ImagesWithBorders, Groups, Shadows, Colors, CircularImages,
+  NodeStyles, Shapes, Images, ImagesWithBorders, Groups, Shadows, Colors, CircularImages,
   Icons, CustomGroups, HTMLInNodes, ShapesWithDashedBorders, WidthHeight
 }

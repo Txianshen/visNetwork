@@ -23,7 +23,7 @@ export default {
       }
     }
   },
-  mounted () {
+  created () {
     this.initData()
   },
   methods: {
@@ -74,6 +74,15 @@ export default {
         nodes: nodes,
         edges: edges
       }
+
+      // this.options = {
+      //   layout: {
+      //     randomSeed: 5
+      //   },
+      //   nodes: {
+      //     brokenImage: DIR + './broken-image.png'
+      //   }
+      // }
     },
     changeOptions () {
       var options = {
@@ -84,6 +93,8 @@ export default {
           brokenImage: DIR + './broken-image.png'
         }
       }
+      // If need set brokenImage options after the network created,
+      // you should use renew method rather than directly set this.options
       this.$refs.network.renew({}, options)
       this.initData()
     }
