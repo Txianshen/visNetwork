@@ -58,13 +58,14 @@ export default {
       }
     }
   },
-  mounted () {
+  created () {
     this.graphData = {
       nodes: NODES,
       edges: EDGES
     }
     this.options = {
       layout: {
+        improvedLayout: false,
         hierarchical: {
           direction: 'UD',
           sortMethod: 'directed'

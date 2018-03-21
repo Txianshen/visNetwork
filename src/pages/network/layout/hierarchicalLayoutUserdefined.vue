@@ -134,7 +134,7 @@ export default {
       this.selection = event.nodes
     }
   },
-  mounted () {
+  created () {
     this.initNetwork()
   }
 }

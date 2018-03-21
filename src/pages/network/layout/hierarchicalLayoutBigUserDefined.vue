@@ -1,7 +1,8 @@
 <template>
   <div>
     <h2>Hierarchical Layout|Big User Defined</h2>
-    <vis-network :graph-data="graphData"
+    <vis-network ref="network"
+                 :graph-data="graphData"
                  :options="options"
                  :style="containerStyle">
     </vis-network>
@@ -30,17 +31,19 @@ export default {
       } else {
         var options = {
           layout: {
-            hierarchical: {}
+            improvedLayout: false,
+            hierarchical: true
           }
         }
         console.log('starting layout')
+        this.$refs.network.renew(data, options)
         this.graphData = data
         this.options = options
         console.log('layout complete')
       }
     }
   },
-  mounted () {
+  created () {
     jsonp('http://127.0.0.1:8080/static/jsonp/demo.jsonp', {name: 'p'}, this.jsonpHandler)
   }
 }
