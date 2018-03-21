@@ -6,9 +6,14 @@
     <div>
       <button @click="changeData">change data</button>
       <button @click="toogleManipulate">toogle manipulation</button>
-      <vis-network :graph-data="graphData"
+      <button @click="getNodesDataSet">print nodeDataset</button>
+      <button @click="updateNode5Label">update node 5's label</button>
+      <vis-network ref="network"
+                   :graph-data="graphData"
                    :options="options"
-                   :style="containerStyle"></vis-network>
+                   :style="containerStyle"
+                   @click="doClick">
+      </vis-network>
     </div>
   </div>
 </template>
@@ -16,8 +21,8 @@
 <script type="text/javascript">
 // create an array with nodes
 var nodes = [
-  {id: 1, label: 'Node 1'},
-  {id: 2, label: 'Node 2'},
+  {id: 1, label: 'Node 1', color: 'red'},
+  {id: 2, label: ''},
   {id: 3, label: 'Node 3'},
   {id: 4, label: 'Node 4'},
   {id: 5, label: 'Node 5'}
@@ -55,6 +60,20 @@ export default ({
     this.graphData = data
   },
   methods: {
+    doClick (params) {
+      var nodesDataSet = this.$refs.network.getNodesDataSet()
+      var allNodes = nodesDataSet.get({returnType: 'Array'})
+      var selectedNode = params.nodes[0]
+      console.log(selectedNode)
+      for (let node of allNodes) {
+        node.color = 'rgba(100,100,100,0.5)'
+        // if (node.comment === undefined) {
+        node.comment = node.label
+        node.label = ''
+        // }
+      }
+      nodesDataSet.update(allNodes)
+    },
     changeData () {
       this.graphData = {
         nodes: [
@@ -87,6 +106,14 @@ export default ({
           manipulation: {enabled: false}
         }
       }
+    },
+    getNodesDataSet () {
+      var nodeDataSet = this.$refs.network.getNodesDataSet()
+      console.log(nodeDataSet.get({returnType: 'Object'}))
+    },
+    updateNode5Label () {
+      var nodeDataSet = this.$refs.network.getNodesDataSet()
+      nodeDataSet.update({id: '5', label: 'node5(updated)'})
     }
   }
 })

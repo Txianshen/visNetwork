@@ -87,7 +87,12 @@ const tree = [
         id: 60,
         label: 'exampleApplications',
         children: [
-          {id: 61, label: 'loadingBar', path: 'LoadingBar'}
+          {id: 61, label: 'disassembler', path: 'DisassemblerExample'},
+          {id: 62, label: 'lesMiserables', path: 'LesMiserables'},
+          {id: 63, label: 'loadingBar', path: 'LoadingBar'},
+          {id: 64, label: 'neighbourhoodHighlight', path: 'NeighbourhoodHighlight'},
+          {id: 65, label: 'nodeLegend', path: 'NodeLegend'},
+          {id: 66, label: 'worldCupPerformance', path: 'WorldCupPerformance'}
         ]
       },
       {
