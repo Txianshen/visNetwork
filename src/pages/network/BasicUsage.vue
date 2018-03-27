@@ -19,13 +19,15 @@
 </template>
 
 <script type="text/javascript">
+import {NODES, EDGES} from './datasources/WorldCup2014'
+
 // create an array with nodes
 var nodes = [
-  {id: 1, label: 'Node 1', color: 'red'},
-  {id: 2, label: ''},
-  {id: 3, label: 'Node 3'},
-  {id: 4, label: 'Node 4'},
-  {id: 5, label: 'Node 5'}
+  {id: 1, label: 'Node 1', group: 1, color: 'red'},
+  {id: 2, label: 'Node 2', group: 2, color: 'red'},
+  {id: 3, label: 'Node 3', color: 'black', group: 3},
+  {id: 4, label: 'Node 4', group: 4},
+  {id: 5, label: 'Node 5', group: 5}
 ]
 
 // create an array with edges
@@ -37,10 +39,6 @@ var edges = [
 ]
 // create a network
 // var container = document.getElementById('mynetwork')
-var data = {
-  nodes: nodes,
-  edges: edges
-}
 
 export default ({
   name: 'basicUsage',
@@ -56,8 +54,47 @@ export default ({
       }
     }
   },
-  mounted () {
-    this.graphData = data
+  created () {
+    this.options = {
+      nodes: {
+        shape: 'dot',
+        scaling: {
+          min: 10,
+          max: 30,
+          label: {
+            min: 8,
+            max: 30,
+            drawThreshold: 12,
+            maxVisible: 20
+          }
+        },
+        font: {
+          size: 12,
+          face: 'Tahoma'
+        }
+      },
+      edges: {
+        width: 0.15,
+        color: {inherit: 'from'},
+        smooth: {
+          type: 'continuous'
+        }
+      },
+      physics: false,
+      interaction: {
+        tooltipDelay: 200,
+        hideEdgesOnDrag: true
+      },
+      groups: {
+        2: {},
+        3: {},
+        4: {},
+        5: {}
+      }
+    }
+    this.graphData = {nodes: nodes, edges: edges} // Note: data is coming from ./datasources/WorldCup2014.js
+    console.log(nodes, edges)
+    console.log(NODES, EDGES)
   },
   methods: {
     doClick (params) {
@@ -66,13 +103,16 @@ export default ({
       var selectedNode = params.nodes[0]
       console.log(selectedNode)
       for (let node of allNodes) {
-        node.color = 'rgba(100,100,100,0.5)'
+        node.color = {
+          background: 'rgba(100,100,100,0.5)'
+        }
         // if (node.comment === undefined) {
-        node.comment = node.label
+        // node.comment = node.label
         node.label = ''
-        // }
       }
       nodesDataSet.update(allNodes)
+      // this.graphData = {nodes: allNodes, edges: edges}
+      console.log(nodesDataSet)
     },
     changeData () {
       this.graphData = {
@@ -113,7 +153,7 @@ export default ({
     },
     updateNode5Label () {
       var nodeDataSet = this.$refs.network.getNodesDataSet()
-      nodeDataSet.update({id: '5', label: 'node5(updated)'})
+      nodeDataSet.update({id: 5, label: 'node5(updated)'})
     }
   }
 })

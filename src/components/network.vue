@@ -48,9 +48,7 @@ const events = [
 export default {
   name: 'vis-network',
   data () {
-    return {
-      localOptions: this.options
-    }
+    return {}
   },
   props: {
     graphData: {
@@ -85,18 +83,28 @@ export default {
       handler (newVal, oldVal) {
         // If passing this.options directly to setOptions as the param,
         // this.options might be modified by setOptions method,
-        // that would trigger Vue.js infinite update loop
-        this.localOptions = _.cloneDeep(this.options)
+        // that would trigger Vue.js into infinite update loop.
+        // see /network/layout/userDefined example.
+        this.localOptions = _.cloneDeep(newVal)
         this.network.setOptions(this.localOptions)
-        // this.network.setOptions(this.options)
-        console.log('in options watcher')
+        // this.network.setOptions(newVal)
+        console.log('in options watcher: network options changed!')
       }
     }
   },
   methods: {
-    redraw () {
-      this.network.redraw()
+    // vis DataSet which is dynamically binded to the network
+    getNodesDataSet () {
+      return this.nodes
     },
+    getEdgesDataSet () {
+      return this.edges
+    },
+    // Methods to get information on nodes and edges.
+    getPositions () { return this.network.getPositions() },
+    getConnectedNodes (params) { return this.network.getConnectedNodes(params) },
+    getConnectedEdges (params) { return this.network.getConnectedEdges(params) },
+    redraw () { this.network.redraw() },
     renew (data, options) {
       console.log('called renew()')
       this.network.destroy()
@@ -116,7 +124,7 @@ export default {
   mounted () {
     this.container = this.$refs.mynetwork
 
-    this.network = new vis.Network(this.container, this.graphData, this.localOptions)
+    this.network = new vis.Network(this.container, {nodes: this.nodes, edges: this.edges}, this.localOptions)
 
     // add event listener
     for (const eventName of events) {
@@ -125,6 +133,9 @@ export default {
   },
   created () {
     this.network = null
+    this.localOptions = _.cloneDeep(this.options)
+    this.nodes = new vis.DataSet(this.graphData.nodes)
+    this.edges = new vis.DataSet(this.graphData.edges)
   }
 }
 </script>

@@ -39,7 +39,7 @@ export default {
         this.highlightActive = true
         var i, j
         var selectedNode = params.nodes[0]
-        var degrees = 1
+        var degrees = 2
 
         // mark all nodes as hard to read.
         for (var nodeId in allNodes) {
@@ -95,7 +95,7 @@ export default {
         }
         this.highlightActive = false
       }
-
+      console.log('in neighbourhood')
       // transform the object into an array
       var updateArray = []
       for (nodeId in allNodes) {
@@ -103,7 +103,10 @@ export default {
           updateArray.push(allNodes[nodeId])
         }
       }
-      nodesDataSet.update(updateArray)
+      // nodesDataSet.update(updateArray)
+      console.log(nodesDataSet.get({returnType: 'Object'}))
+      nodesDataSet.update([{id: 21, color: 'blue', label: 'alex'}])
+      console.log(nodesDataSet.get({returnType: 'Object'}))
     }
   },
   created () {
