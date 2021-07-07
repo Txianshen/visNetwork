@@ -1,12 +1,17 @@
 <template id>
   <div id="visNetwork"
        ref="mynetwork"
-       style="width: 100%; height: 100vh; border: 1px solid lightgrey"></div>
+       style="width: 100%; height: 100vh; border: 1px solid lightgrey">
+       
+       <span></span>
+       </div>
 </template>
 
 <script>
 import vis from 'vis'
 import _ from 'lodash'
+
+
 
 const events = [
   // Events triggered by human interaction, selection, dragging etc.
