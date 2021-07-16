@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "@fortawesome/vue-fontawesome": "0.0.22",
-    "element-ui": "^2.2.0",
+    "element-ui": "^2.15.3",
     "jsonp": "^0.2.1",
+    "less": "^4.1.1",
+    "less-loader": "^4.1.0",
     "lodash": "^4.17.5",
     "vis": "^4.21.0",
     "vue": "^2.5.2",

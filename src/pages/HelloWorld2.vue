@@ -80,6 +80,9 @@
         </a>
       </li>
     </ul>
+    <div style="display:inline-block;width:50px;height:50px;border:10px solid black; padding:10px;background:red">
+
+    </div>
   </div>
 </template>
 
