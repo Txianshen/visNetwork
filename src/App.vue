@@ -3,7 +3,8 @@
     <!--<div id="config"></div>-->
     <div id="header" style="">
       <!--<img id="logo_img" src="./assets/visjs.png">-->
-      <h1>Vis.js Examples with Vue.js</h1>
+
+      <h1>Vis.js Examples with Vue.js test</h1>
     </div>
     <div id="aside" :style="asideStyle">
       <div v-if="collapsed" @click="toggleCollapse" style="height: 100%;">
